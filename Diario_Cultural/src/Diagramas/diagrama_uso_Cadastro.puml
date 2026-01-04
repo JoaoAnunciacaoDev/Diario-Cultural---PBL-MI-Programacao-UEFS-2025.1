@@ -1,0 +1,81 @@
+@startuml
+
+left to right direction
+skinparam linetype ortho
+
+actor Usuario
+
+rectangle "Sistema Diário Cultural" {
+
+  usecase "Cadastrar Mídia" as UC1
+  usecase "Cadastrar Livro" as UC2
+  usecase "Cadastrar Série" as UC4
+  usecase "Cadastrar Filme" as UC3
+  usecase "Cadastrar Temporada" as UC5
+
+
+  Usuario --> UC1
+
+
+  UC1 ..> UC2 : <<include>>
+  UC1 ..> UC3 : <<include>>
+  UC1 ..> UC4 : <<include>>
+  UC4 ..> UC5 : <<include>>
+
+}
+@enduml
+
+' ===============================
+' Documentação dos Casos de Uso
+' ===============================
+
+' === UC1 - Cadastrar Mídia ===
+' Ator: Usuario
+' Descrição: Permite ao usuário cadastrar uma nova mídia no sistema (Livro, Filme ou Série).
+' Fluxo principal:
+'   1. Usuário seleciona a opção "Cadastrar Mídia".
+'   2. Sistema apresenta as opções: Livro, Filme, Série.
+'   3. Usuário escolhe o tipo de mídia.
+'   4. Sistema redireciona para UC2, UC3 ou UC4.
+
+' === UC2 - Cadastrar Livro ===
+' Ator: Usuario
+' Descrição: Permite cadastrar um livro com informações como título, autor, gênero e ano.
+' Pré-condição: O usuário escolheu "Livro" no UC1.
+' Fluxo principal:
+'   1. Sistema exibe formulário para cadastro de livro.
+'   2. Usuário preenche os dados.
+'   3. Sistema valida as informações.
+'   4. Dados são enviados ao MidiaController.
+'   5. Confirmação de sucesso.
+
+' === UC3 - Cadastrar Filme ===
+' Ator: Usuario
+' Descrição: Permite cadastrar um filme com título, diretor, ano, gênero, etc.
+' Pré-condição: O usuário escolheu "Filme" no UC1.
+' Fluxo principal:
+'   1. Sistema exibe formulário para cadastro de filme.
+'   2. Usuário preenche os dados.
+'   3. Sistema valida e envia ao MidiaController.
+'   4. Confirmação de sucesso.
+
+' === UC4 - Cadastrar Série ===
+' Ator: Usuario
+' Descrição: Permite cadastrar uma série ou iniciar o cadastro de uma temporada.
+' Pré-condição: O usuário escolheu "Série" no UC1.
+' Fluxo principal:
+'   1. Sistema pergunta se deseja cadastrar série ou temporada.
+'   2. Usuário escolhe.
+'   3. Sistema redireciona para UC5 (se for temporada).
+
+' === UC5 - Cadastrar Temporada ===
+' Ator: Usuario
+' Descrição: Permite cadastrar uma nova temporada vinculada a uma série existente.
+' Pré-condição: O usuário optou por cadastrar temporada no UC4.
+' Fluxo principal:
+'   1. Sistema solicita identificação da série.
+'   2. Usuário seleciona a série.
+'   3. Sistema exibe formulário com dados da temporada.
+'   4. Usuário preenche e confirma.
+'   5. Sistema valida e salva a temporada.
+

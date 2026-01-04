@@ -1,0 +1,97 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+top to bottom direction
+skinparam linetype ortho
+
+class Main {
+  + main(String[]): void
+}
+
+class MenuPrincipal {
+  + iniciar(): void
+  - processarOpcaoMenuPrincipal(String): boolean
+  - exibirMenuPrincipal(): boolean
+}
+
+class ViewAtualizar {
+  - atualizarSerie(Serie, Scanner): void
+  + atualizarMidia(List<Midia>, Scanner, LivroController, FilmeController, SerieController): void
+  + processarAtualizacao(LivroController, FilmeController, SerieController, Scanner): void
+  - atualizarTemporada(Serie, Scanner): void
+  - atualizarGeneros(T, List<String>, String, Scanner): void
+  - atualizarLivro(Livro, Scanner): void
+  - atualizarElenco(Map<String, List<String>>, Scanner): void
+  - atualizarFilme(Filme, Scanner): void
+}
+
+class ViewAvaliacao {
+  - selecionarAvaliacao(List<Avaliacao>, Scanner): int
+  + configurandoAvaliacao(float, String, Scanner): Avaliacao
+  + sobreescreverAvaliacao(LivroController, FilmeController, SerieController, Scanner): void
+  + processarAvaliacao(LivroController, FilmeController, SerieController, Scanner): void
+  + visualizarAvaliacoes(LivroController, FilmeController, SerieController, Scanner): void
+  + AdicionarAvaliacao(LivroController, FilmeController, SerieController, Scanner): void
+  + deletarAvaliacao(LivroController, FilmeController, SerieController, Scanner): void
+}
+
+class ViewBusca {
+  + buscarPorAnoLancamento(List<Midia>, Scanner): List<Midia>
+  + buscarPorTitulo(List<Midia>, Scanner): List<Midia>
+  + buscarPorGenero(List<Midia>, Scanner): List<Midia>
+  + interagirComSerie(Serie): void
+  - serieVerificacao(Scanner, List<Midia>, String): String
+  + processarBusca(LivroController, FilmeController, SerieController, Scanner): void
+  + buscarPorAutor(List<Livro>, Scanner): List<Livro>
+  + buscarPorDiretor(List<Filme>, Scanner): List<Filme>
+  + buscarPorAtor(List<Filme>, Scanner): List<Filme>
+  + buscarPorISBN(List<Livro>, Scanner): List<Livro>
+}
+
+class ViewCadastroFilme {
+  + cadastrarFilme(FilmeController, Scanner): void
+}
+
+class ViewCadastroGeral {
+  + processarCadastro(LivroController, FilmeController, SerieController, Scanner): void
+}
+
+class ViewCadastroLivro {
+  + cadastrarLivro(LivroController, Scanner): void
+}
+
+class ViewCadastroSerie {
+  + cadastrarTemporada(SerieController, Scanner): void
+  + cadastrarSerie(SerieController, Scanner): void
+}
+
+class ViewDeletar {
+  + processarRemocao(LivroController, FilmeController, SerieController, Scanner): void
+  - confirmarDelecao(Midia, Scanner): boolean
+  + deletarMidia(List<Midia>, Scanner): void
+  - removerTemporada(Serie, Scanner): void
+}
+
+class ViewLista {
+  - escolhaOrdenacao(List<Midia>, Scanner): void
+  - escolhaFiltragem(List<Midia>, Scanner): void
+  + listarTodasMidias(List<Livro>, List<Filme>, List<Serie>, Scanner): void
+  + selecionarLista(LivroController, FilmeController, SerieController, Scanner): List<Midia>
+  + listarIndividual(List<Midia>): void
+  + processarListagem(LivroController, FilmeController, SerieController, Scanner): void
+  + selecionarMidia(List<Midia>): int
+}
+
+Main o--> MenuPrincipal
+MenuPrincipal ..> ViewCadastroGeral
+MenuPrincipal ..> ViewLista
+MenuPrincipal ..> ViewBusca
+MenuPrincipal ..> ViewAtualizar
+MenuPrincipal ..> ViewAvaliacao
+MenuPrincipal ..> ViewDeletar
+
+ViewCadastroGeral ..> ViewCadastroLivro
+ViewCadastroGeral ..> ViewCadastroFilme
+ViewCadastroGeral ..> ViewCadastroSerie
+
+@enduml

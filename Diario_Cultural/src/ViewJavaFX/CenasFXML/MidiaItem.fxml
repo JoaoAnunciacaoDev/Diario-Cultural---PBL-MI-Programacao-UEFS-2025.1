@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.TilePane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox fx:id="paideTodos" maxWidth="1060.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ViewJavaFX.ListagemMidias.MidiaItemController">
+   <children>
+      <TilePane maxWidth="1090.0" minWidth="-Infinity" prefHeight="25.0" prefWidth="999.0" style="-fx-background-color: #C0C0C0;" tileAlignment="TOP_LEFT">
+         <children>
+            <HBox fx:id="hboxInfo" alignment="CENTER" maxWidth="1090.0" spacing="20.0">
+               <children>
+                  <Label fx:id="tipoMidia" alignment="CENTER" prefHeight="17.0" prefWidth="68.0" text="Tipo" />
+                  <Label fx:id="tituloMidia" alignment="CENTER" maxWidth="1100.0" prefHeight="17.0" prefWidth="363.0" text="Título">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin></Label>
+                  <Button fx:id="editarTitulo" layoutX="120.0" layoutY="10.0" mnemonicParsing="false" onAction="#edicaoTitulo" prefHeight="25.0" prefWidth="87.0" text="Editar" textAlignment="CENTER" visible="false" wrapText="true" />
+                  <Label fx:id="anoLancamentoMidia" alignment="CENTER" prefHeight="17.0" prefWidth="148.0" text="Ano de Lançamento" />
+                  <Button fx:id="editarAnoLancamento" layoutX="585.0" layoutY="10.0" mnemonicParsing="false" onAction="#edicaoAnoLancamento" prefHeight="25.0" prefWidth="92.0" text="Editar" textAlignment="CENTER" visible="false" wrapText="true" />
+                  <Label fx:id="notaMidia" alignment="CENTER" prefHeight="17.0" prefWidth="92.0" text="Nota" />
+                  <Button fx:id="editarNota" layoutX="772.0" layoutY="10.0" mnemonicParsing="false" onAction="#edicaoNota" prefHeight="25.0" prefWidth="93.0" text="Editar" textAlignment="CENTER" visible="false" wrapText="true" />
+                  <Button fx:id="botaoDetalhes" alignment="CENTER" mnemonicParsing="false" onAction="#verDetalhes" prefHeight="25.0" prefWidth="122.0" text="Ver Detalhes" wrapText="true" />
+               </children>
+            </HBox>
+         </children>
+      </TilePane>
+      <TilePane fx:id="detalhesPane" managed="false" visible="false">
+         <children>
+            <VBox fx:id="detalhesVbox" spacing="8.0" style="-fx-background-color: #f9f9f9; -fx-border-color: #ddd; -fx-border-radius: 6; -fx-background-radius: 6;">
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+               <TilePane.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </TilePane.margin></VBox>
+            <VBox fx:id="avaliacaoVbox" layoutX="-1.0" layoutY="3.0" spacing="8.0" style="-fx-background-color: #f9f9f9; -fx-border-color: #ddd; -fx-border-radius: 6; -fx-background-radius: 6;">
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+               <TilePane.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </TilePane.margin>
+            </VBox>
+            <VBox fx:id="elencoVbox" layoutX="-1.0" layoutY="3.0" spacing="8.0" style="-fx-background-color: #f9f9f9; -fx-border-color: #ddd; -fx-border-radius: 6; -fx-background-radius: 6;">
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+               <TilePane.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </TilePane.margin>
+            </VBox>
+            <Button fx:id="deletarMidia" mnemonicParsing="false" onAction="#onDeletarMidia" text="Deletar Mídia" />
+            <Button fx:id="avaliarMidia" layoutX="-2.0" layoutY="-2.0" mnemonicParsing="false" onAction="#onAvaliarMidia" text="Avaliar Mídia" />
+         </children>
+         <VBox.margin>
+            <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+         </VBox.margin>
+      </TilePane>
+   </children>
+</VBox>

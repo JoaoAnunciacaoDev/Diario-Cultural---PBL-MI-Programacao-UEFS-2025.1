@@ -1,0 +1,91 @@
+@startuml
+
+top to bottom direction
+skinparam linetype ortho
+
+class Audiovisual {
+  + getTituloOriginal(): String
+  + setOndeAssistir(List<String>): void
+  + getOndeAssistir(): List<String>
+  + addOndeAssistir(List<String>): void
+  + getElenco(): Map<String, List<String>>
+  + setElenco(Map<String, List<String>>): void
+  + adicionarCategoriaElenco(String, List<String>): void
+  + setTituloOriginal(String): void
+}
+class Avaliacao {
+  + setDataAvaliacao(String): void
+  + getDataAvaliacao(): String
+  + getDataConsumo(): LocalDate
+  + setDataConsumo(LocalDate): void
+  + toString(): String
+  + setNota(float): void
+  + getNota(): float
+  + setAvaliacao(String): void
+  + getAvaliacao(): String
+}
+class Filme {
+  + getDirecao(): String
+  + setDirecao(String): void
+  + setDuracao(int): void
+  + setRoteiro(String): void
+  + getTipoMidia(): String
+  + toString(): String
+  + getDuracao(): int
+  + getRoteiro(): String
+}
+class Livro {
+  + getPossuiExemplar(): boolean
+  + setEditora(String): void
+  + getAutor(): String
+  + setPossuiExemplar(boolean): void
+  + setIsbn(String): void
+  + setAutor(String): void
+  + getEditora(): String
+  + getIsbn(): String
+  + getTipoMidia(): String
+  + toString(): String
+}
+class Midia {
+  + setAvaliacao(Avaliacao): void
+  + setTitulo(String): void
+  + getJa_Consumiu(): boolean
+  + getAnoLancamento(): int
+  + setJaConsumiu(boolean): void
+  + getGeneros(): List<String>
+  + setGenero(List<String>): void
+  + addGeneros(List<String>): void
+  + setGenero(String): void
+  + removerGenero(String): void
+  + setAnoLancamento(int): void
+  + getTitulo(): String
+  + toString(): String
+  + getAvaliacoes(): List<Avaliacao>
+  + getTipoMidia(): String
+}
+class Serie {
+  + getTemporadas(): List<Temporada>
+  + setNota(): void
+  + getNota(): float
+  + ordernarTemporadas(): void
+  + toString(): String
+  + getTipoMidia(): String
+  + addTemporada(Temporada): void
+  + getAnoEncerramento(): int
+}
+class Temporada {
+  + toString(): String
+  + getNumeroTemporada(): int
+  + setNumeroTemporada(int): void
+  + setQuantidadeEpisodios(int): void
+  + getQuantidadeEpisodios(): int
+}
+
+Midia ^-[#000082,plain]- Audiovisual
+Midia ^-[#000082,plain]- Livro
+Audiovisual ^-[#000082,plain]- Filme
+Audiovisual ^-[#000082,plain]- Serie
+Audiovisual ^-[#000082,plain]- Temporada
+Midia "many" *-- "1" Avaliacao : contains
+
+@enduml

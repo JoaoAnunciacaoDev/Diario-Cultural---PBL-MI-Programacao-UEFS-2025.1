@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ViewJavaFX.CadastroMidias.CadastrarMidiasController">
+   <tabs>
+      <Tab text="Cadastrar Livro">
+         <content>
+            <AnchorPane>
+               <VBox prefHeight="720.0" prefWidth="1255.0" spacing="15.0">
+                  <padding>
+                     <Insets left="25.0" top="25.0" />
+                  </padding>
+                  <children>
+                     <Label text="Título do Livro:" />
+                     <HBox alignment="CENTER_LEFT" spacing="10.0">
+                        <TextField fx:id="tituloLivro" prefWidth="600.0" promptText="Insira o título aqui" />
+                        <Label fx:id="tituloLivroError" textFill="RED" />
+                     </HBox>
+                     <Label text="Nome do Autor:" />
+                     <HBox alignment="CENTER_LEFT" spacing="10.0">
+                        <TextField fx:id="nomeAutorLivro" prefWidth="600.0" promptText="Insira o nome do autor aqui" />
+                        <Label fx:id="autorError" textFill="RED" />
+                     </HBox>
+                     <Label text="Nome da Editora:" />
+                     <HBox alignment="CENTER_LEFT" spacing="10.0">
+                        <TextField fx:id="nomeEditora" prefWidth="600.0" promptText="Insira o nome da editora aqui" />
+                        <Label fx:id="editoraError" textFill="RED" />
+                     </HBox>
+                     <Label text="Gênero(s):" />
+                     <HBox alignment="CENTER_LEFT" spacing="10.0">
+                        <TextField fx:id="caixaGeneroLivro" prefWidth="600.0" promptText="Insira os gêneros separados por vírgula" />
+                        <Label fx:id="generosLivroError" textFill="RED" />
+                     </HBox>
+                     <Label text="Ano de Publicação:" />
+                     <HBox alignment="CENTER_LEFT" spacing="10.0">
+                        <TextField fx:id="anoPublicacaoLivro" prefWidth="600.0" promptText="Insira o ano de publicação aqui" />
+                        <Label fx:id="anoLivroError" textFill="RED" />
+                     </HBox>
+                     <Label text="ISBN do livro:" />
+                     <HBox alignment="CENTER_LEFT" spacing="10.0">
+                        <TextField fx:id="isbnLivro" prefWidth="600.0" promptText="Insira o ISBN aqui" />
+                        <Label fx:id="isbnError" textFill="RED" />
+                     </HBox>
+                     <CheckBox fx:id="possuiExemplar" mnemonicParsing="false" text="Possui exemplar?" />
+                     <HBox alignment="CENTER_LEFT" spacing="20.0">
+                        <Button onAction="#CadastrarLivro" text="Cadastrar Livro" />
+                        <Label fx:id="livroStatusLabel" style="-fx-font-weight: bold; -fx-text-fill: green;" />
+                     </HBox>
+                     <Button fx:id="botaoVoltar" mnemonicParsing="false" onAction="#voltarMenu" text="Voltar ao Menu Principal" />
+                  </children>
+               </VBox>
+            </AnchorPane>
+         </content>
+      </Tab>
+      <Tab text="Cadastrar Filme">
+         <content>
+            <AnchorPane>
+               <HBox prefHeight="680.0" prefWidth="1280.0" spacing="50.0">
+                  <children>
+                     <VBox prefWidth="500.0" spacing="15.0">
+                        <padding>
+                           <Insets left="25.0" top="25.0" />
+                        </padding>
+                        <Label text="Título do Filme:" />
+                        <HBox alignment="CENTER_LEFT" spacing="10.0"><TextField fx:id="tituloFilme" prefWidth="400.0" promptText="Insira o título aqui" /><Label fx:id="tituloFilmeError" textFill="RED" /></HBox>
+                        <Label text="Gênero(s):" />
+                        <HBox alignment="CENTER_LEFT" spacing="10.0"><TextField fx:id="caixaGeneroFilme" prefWidth="400.0" promptText="Insira os gêneros separados por vírgula" /><Label fx:id="generoFilmeError" textFill="RED" /></HBox>
+                        <Label text="Ano de Lançamento:" />
+                        <HBox alignment="CENTER_LEFT" spacing="10.0"><TextField fx:id="anoLancamentoFilme" prefWidth="400.0" promptText="Insira o ano de lançamento aqui" /><Label fx:id="anoFilmeError" textFill="RED" /></HBox>
+                        <Label text="Duração (minutos):" />
+                        <HBox alignment="CENTER_LEFT" spacing="10.0"><TextField fx:id="duracaoFilme" prefWidth="400.0" promptText="Insira a duração do filme aqui" /><Label fx:id="duracaoFilmeError" textFill="RED" /></HBox>
+                        <Label text="Direção:" />
+                        <HBox alignment="CENTER_LEFT" spacing="10.0"><TextField fx:id="direcaoFilme" prefWidth="400.0" promptText="Insira o nome do Diretor aqui" /><Label fx:id="direcaoFilmeError" textFill="RED" /></HBox>
+                        <Label text="Roteiro:" />
+                        <HBox alignment="CENTER_LEFT" spacing="10.0"><TextField fx:id="roteiroFilme" prefWidth="400.0" promptText="Insira o Roteirista aqui" /><Label fx:id="roteiroFilmeError" textFill="RED" /></HBox>
+                        <Label text="Título Original:" />
+                        <HBox alignment="CENTER_LEFT" spacing="10.0"><TextField fx:id="tituloOriginalFilme" prefWidth="400.0" promptText="Insira o título original aqui" /><Label fx:id="tituloOriginalFilmeError" textFill="RED" /></HBox>
+                        <Label text="Onde assistir:" />
+                        <HBox alignment="CENTER_LEFT" spacing="10.0"><TextField fx:id="ondeAssistirFilme" prefWidth="400.0" promptText="Insira o serviço de streaming aqui" /><Label fx:id="ondeAssistirFilmeError" textFill="RED" /></HBox>
+                        <Button fx:id="botaoVoltar1" mnemonicParsing="false" onAction="#voltarMenu" text="Voltar ao Menu Principal" />
+                     </VBox>
+                     <VBox alignment="TOP_CENTER" prefWidth="650.0" spacing="10.0">
+                        <padding><Insets right="25.0" top="25.0" /></padding>
+                        <Label text="Elenco:" />
+                        <HBox alignment="CENTER" spacing="10.0">
+                           <TextField fx:id="funcaoElencoFilme" prefWidth="200.0" promptText="Função (Ex: Ator)" />
+                           <TextField fx:id="nomeElencoFilme" prefWidth="200.0" promptText="Nome do Integrante" />
+                           <Button onAction="#AdicionarElencoFilme" text="Adicionar" />
+                        </HBox>
+                        <ListView fx:id="elencoFilmeListView" prefHeight="250.0" />
+                        <Label fx:id="elencoFilmeError" textFill="RED" />
+                        <HBox alignment="CENTER" spacing="20.0">
+                           <Button onAction="#CadastrarFilme" text="Cadastrar Filme" />
+                           <Label fx:id="filmeStatusLabel" style="-fx-font-weight: bold; -fx-text-fill: green;" />
+                        </HBox>
+                     </VBox>
+                  </children>
+               </HBox>
+            </AnchorPane>
+         </content>
+      </Tab>
+      <Tab text="Cadastrar Série">
+         <content>
+            <AnchorPane>
+               <HBox prefHeight="680.0" prefWidth="1280.0" spacing="50.0">
+                  <children>
+                     <VBox prefWidth="500.0" spacing="15.0">
+                        <padding>
+                           <Insets left="25.0" top="25.0" />
+                        </padding>
+                        <Label text="Título da Série:" />
+                        <HBox alignment="CENTER_LEFT" spacing="10.0"><TextField fx:id="tituloSerie" prefWidth="400.0" promptText="Insira o título aqui" /><Label fx:id="tituloSerieError" textFill="RED" /></HBox>
+                        <Label text="Gênero(s):" />
+                        <HBox alignment="CENTER_LEFT" spacing="10.0"><TextField fx:id="caixaGeneroSerie" prefWidth="400.0" promptText="Insira os gêneros separados por vírgula" /><Label fx:id="generoSerieError" textFill="RED" /></HBox>
+                        <Label text="Ano de Lançamento:" />
+                        <HBox alignment="CENTER_LEFT" spacing="10.0"><TextField fx:id="anoLancamentoSerie" prefWidth="400.0" promptText="Insira o ano de lançamento aqui" /><Label fx:id="anoLancamentoSerieError" textFill="RED" /></HBox>
+                        <Label text="Ano de Encerramento (0 se em exibição):" />
+                        <HBox alignment="CENTER_LEFT" spacing="10.0"><TextField fx:id="anoEncerramentoSerie" prefWidth="400.0" promptText="Insira o ano de encerramento aqui" /><Label fx:id="anoEncerramentoSerieError" textFill="RED" /></HBox>
+                        <Label text="Título Original:" />
+                        <HBox alignment="CENTER_LEFT" spacing="10.0"><TextField fx:id="tituloOriginalSerie" prefWidth="400.0" promptText="Insira o título original aqui" /><Label fx:id="tituloOriginalSerieError" textFill="RED" /></HBox>
+                        <Label text="Onde assistir:" />
+                        <HBox alignment="CENTER_LEFT" spacing="10.0"><TextField fx:id="ondeAssistirSerie" prefWidth="400.0" promptText="Insira o serviço de streaming aqui" /><Label fx:id="ondeAssistirSerieError" textFill="RED" /></HBox>
+                        <Button fx:id="botaoVoltar" mnemonicParsing="false" onAction="#voltarMenu" text="Voltar ao Menu Principal" />
+                     </VBox>
+                     <VBox alignment="TOP_CENTER" prefWidth="650.0" spacing="10.0">
+                        <padding><Insets right="25.0" top="25.0" /></padding>
+                        <Label text="Elenco:" />
+                        <HBox alignment="CENTER" spacing="10.0">
+                           <TextField fx:id="funcaoElencoSerie" prefWidth="200.0" promptText="Função" />
+                           <TextField fx:id="nomeElencoSerie" prefWidth="200.0" promptText="Nome do Integrante" />
+                           <Button onAction="#AdicionarElencoSerie" text="Adicionar" />
+                        </HBox>
+                        <ListView fx:id="elencoSerieListView" prefHeight="250.0" />
+                        <Label fx:id="elencoSerieError" textFill="RED" />
+                        <HBox alignment="CENTER" spacing="20.0">
+                           <Button onAction="#CadastrarSerie" text="Cadastrar Série" />
+                           <Label fx:id="serieStatusLabel" style="-fx-font-weight: bold; -fx-text-fill: green;" />
+                        </HBox>
+                     </VBox>
+                  </children>
+               </HBox>
+            </AnchorPane>
+         </content>
+      </Tab>
+      <Tab text="Cadastrar Temporada">
+         <content>
+            <AnchorPane>
+               <HBox prefHeight="680.0" prefWidth="1280.0" spacing="50.0">
+                  <children>
+                     <VBox prefWidth="500.0" spacing="15.0">
+                        <padding>
+                           <Insets left="25.0" top="25.0" />
+                        </padding>
+                        <Label text="Selecione a Série:" />
+                        <HBox alignment="CENTER_LEFT" spacing="10.0"><ChoiceBox fx:id="serieSelecionada" prefWidth="400.0" /><Label fx:id="serieSelecionadaError" textFill="RED" /></HBox>
+                        <Label text="Nº da temporada:" />
+                        <HBox alignment="CENTER_LEFT" spacing="10.0"><TextField fx:id="numTemporada" prefWidth="400.0" promptText="Insira o número da temporada aqui" /><Label fx:id="numTemporadaError" textFill="RED" /></HBox>
+                        <Label text="Ano de lançamento da temporada:" />
+                        <HBox alignment="CENTER_LEFT" spacing="10.0"><TextField fx:id="anoLancamentoTemporada" prefWidth="400.0" promptText="Insira o ano de lançamento" /><Label fx:id="anoLancamentoTemporadaError" textFill="RED" /></HBox>
+                        <Label text="Quantidade de Episódios:" />
+                        <HBox alignment="CENTER_LEFT" spacing="10.0"><TextField fx:id="quantidadeEpisodiosTemporada" prefWidth="400.0" promptText="Insira a quantidade de episódios" /><Label fx:id="qtdEpisodiosError" textFill="RED" /></HBox>
+
+                        <Label text="Onde assistir:" />
+                        <HBox alignment="CENTER_LEFT" spacing="10.0"><TextField fx:id="ondeAssistirTemporada" prefWidth="400.0" promptText="Insira o serviço de streaming aqui" /><Label fx:id="ondeAssistirTemporadaError" textFill="RED" /></HBox>
+                        <Button fx:id="botaoVoltar" mnemonicParsing="false" onAction="#voltarMenu" text="Voltar ao Menu Principal" />
+                     </VBox>
+                     <VBox alignment="TOP_CENTER" prefWidth="650.0" spacing="10.0">
+                        <padding><Insets right="25.0" top="25.0" /></padding>
+                        <Label text="Elenco da Temporada:" />
+                        <HBox alignment="CENTER" spacing="10.0">
+                           <TextField fx:id="funcaoElencoTemporada" prefWidth="200.0" promptText="Função" />
+                           <TextField fx:id="nomeElencoTemporada" prefWidth="200.0" promptText="Nome do Integrante" />
+                           <Button onAction="#AdicionarElencoTemporada" text="Adicionar" />
+                        </HBox>
+                        <ListView fx:id="elencoTemporadaListView" prefHeight="250.0" />
+                        <Label fx:id="elencoTemporadaError" textFill="RED" />
+                        <HBox alignment="CENTER" spacing="20.0">
+                           <Button onAction="#CadastrarTemporada" text="Cadastrar Temporada" />
+                           <Label fx:id="temporadaStatusLabel" style="-fx-font-weight: bold; -fx-text-fill: green;" />
+                        </HBox>
+                     </VBox>
+                  </children>
+               </HBox>
+            </AnchorPane>
+         </content>
+      </Tab>
+   </tabs>
+</TabPane>

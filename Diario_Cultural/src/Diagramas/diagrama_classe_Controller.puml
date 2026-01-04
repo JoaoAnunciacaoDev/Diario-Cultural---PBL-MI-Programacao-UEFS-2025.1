@@ -1,0 +1,65 @@
+@startuml
+
+left to right direction
+skinparam linetype ortho
+
+class LivroController {
+  + getLivros(): List<Livro>
+  + setEditora(Livro, String): void
+  + setIsbn(Livro, String): void
+  + removerMidia(Livro): void
+  + setAutor(Livro, String): void
+  + busca_autor(String, List<Livro>): List<Livro>
+  + setPossuiExemplar(Livro, boolean): void
+  + cadastrarLivro(String, String, String, List<String>, int, String, boolean): void
+  + busca_isbn(String, List<Livro>): List<Livro>
+}
+
+class FilmeController {
+  + busca_elenco(String, String, List<Filme>): List<Filme>
+  + setTituloOriginal(Filme, String): void
+  + setDuracao(Filme, int): void
+  + getElenco(Filme): Map<String, List<String>>
+  + setRoteiro(Filme, String): void
+  + setDirecao(Filme, String): void
+  + getOndeAssistir(Filme): List<String>
+  + cadastrarFilme(String, List<String>, int, int, String, String, Map<String, List<String>>, String, List<String>): void
+  + busca_diretor(String, List<Filme>): List<Filme>
+  + removerMidia(Filme): void
+  + getFilmes(): List<Filme>
+}
+
+class MidiaController {
+  + addGenero(Midia, List<String>): void
+  - extrairNotaMaisRecente(Midia): float
+  + getGeneros(Midia): List<String>
+  + getTitulo(Midia): String
+  + setGenero(Midia, List<String>): void
+  + busca_titulo(String, List<Midia>): List<Midia>
+  + ordenarBemAvaliado(List<Midia>): List<Midia>
+  + ordenarMalAvaliado(List<Midia>): List<Midia>
+  + setTitulo(Midia, String): void
+  + filtrarPorAno(List<Midia>, int): List<Midia>
+  + filtrarPorGenero(List<Midia>, String): List<Midia>
+  + getAvaliacoes(Midia): List<Avaliacao>
+  + busca_ano(int, List<Midia>): List<Midia>
+  + removerGenero(Midia, String): void
+  + busca_genero(String, List<Midia>): List<Midia>
+  + setAno(Midia, int): void
+}
+class SerieController {
+  + removerMidia(Serie): void
+  + getElenco(Serie): Map<String, List<String>>
+  + getSeries(): List<Serie>
+  + getTemporadas(Serie): List<Temporada>
+  + cadastrarSerie(String, List<String>, int, int, Map<String, List<String>>, String, List<String>): void
+  + cadastrarTemporada(String, List<String>, int, Map<String, List<String>>, String, List<String>, int, int, Serie): void
+  + getOndeAssistir(Serie): List<String>
+  + setTituloOriginal(Serie, String): void
+}
+
+MidiaController ^-[#000082,plain]-- FilmeController
+MidiaController ^-[#000082,plain]-- LivroController
+MidiaController ^-[#000082,plain]-- SerieController
+
+@enduml
